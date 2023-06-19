@@ -38,6 +38,7 @@ namespace GoodbyeYellowBrickRoad
         int ballYSpeed;
         int missingBricks = 0;
         int bonusCompleted = 0;
+        int bonusWon = 0;
         string difficulty;
         
 
@@ -75,6 +76,7 @@ namespace GoodbyeYellowBrickRoad
             
         }
 
+        //reset bricks to original positions
         public void ResetBricks()
         {
             brownBricks[0] = new Rectangle(0, 250, 100, 30);
@@ -112,6 +114,25 @@ namespace GoodbyeYellowBrickRoad
             bonusBrick = new Rectangle(315, 320, 100, 30);
 
             missingBricks = 0;
+
+            ball.X = 283;
+            ball.Y = 520;
+
+            if (difficulty == "easy")
+            {
+                ballXSpeed = 6;
+                ballYSpeed = 6;
+            }
+            else if (difficulty == "medium")
+            {
+                ballXSpeed = 8;
+                ballYSpeed = 8;
+            }
+            else
+            {
+                ballXSpeed = 10;
+                ballYSpeed = 10;
+            }
 
             Refresh();
         }
@@ -342,14 +363,17 @@ namespace GoodbyeYellowBrickRoad
             
         }
 
+        //part 1 of returning the game to brick-breaking from the lyric guess page
         public void ReturnToBrickBreak1()
         {
+            lyricInput.Text = "";
             lyricInput.Enabled = false;
             lyricInput.Visible = false;
             enterButton.Enabled = false;
             enterButton.Visible = false;
         }
 
+        //part 2 of the above
         public void ReturnToBrickBreak2()
         {
             introLabel.Refresh();
@@ -577,7 +601,7 @@ namespace GoodbyeYellowBrickRoad
                         introLabel.Text = $"Enter the name of the song that contains this lyric: \n'It's seven o'clock and I want to rock'";
                         break;
                     case 2:
-                        introLabel.Text = $"Enter the name of the song that contains this lyric: \n'Never knowing who to cling to when the rain set in";
+                        introLabel.Text = $"Enter the name of the song that contains this lyric: \n'Never knowing who to cling to when the rain set in'";
                         break;
                     default:
                         bonusCompleted = 0;
@@ -604,7 +628,7 @@ namespace GoodbyeYellowBrickRoad
 
                     gameTimer.Enabled = false;
 
-                    introLabel.Text = $"GAME OVER\n\nScore: {score}\nLives Used: {5-lives}\nPlay Time: {time}";
+                    introLabel.Text = $"GAME OVER\n\nScore: {score}\nBonus Bricks Collected: {bonusWon}\nPlay Time: {time}";
 
                 }
             }
@@ -627,6 +651,7 @@ namespace GoodbyeYellowBrickRoad
                             ReturnToBrickBreak1();
                             introLabel.Text = "CORRECT";
                             score *= 2;
+                            bonusWon += 1;
                             ReturnToBrickBreak2();
                         }
                         else
@@ -644,6 +669,7 @@ namespace GoodbyeYellowBrickRoad
                             ReturnToBrickBreak1();
                             introLabel.Text = "CORRECT";
                             score *= 2;
+                            bonusWon += 1;
                             ReturnToBrickBreak2();
                         }
                         else
@@ -660,6 +686,7 @@ namespace GoodbyeYellowBrickRoad
                             ReturnToBrickBreak1();
                             introLabel.Text = "CORRECT";
                             score *= 2;
+                            bonusWon += 1;
                             ReturnToBrickBreak2();
                         }
                         else
