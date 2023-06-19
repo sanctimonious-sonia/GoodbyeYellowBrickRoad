@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodbyeYellowBrickRoad", "GoodbyeYellowBrickRoad\GoodbyeYellowBrickRoad.csproj", "{8BD71CD7-A27D-4950-BB7D-B8822BA3986E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD71CD7-A27D-4950-BB7D-B8822BA3986E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD71CD7-A27D-4950-BB7D-B8822BA3986E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD71CD7-A27D-4950-BB7D-B8822BA3986E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD71CD7-A27D-4950-BB7D-B8822BA3986E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86B067EE-BD6D-42D9-9E96-AD9BE7FCB707}
+	EndGlobalSection
+EndGlobal
