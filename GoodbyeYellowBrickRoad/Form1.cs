@@ -115,25 +115,6 @@ namespace GoodbyeYellowBrickRoad
 
             missingBricks = 0;
 
-            ball.X = 283;
-            ball.Y = 520;
-
-            if (difficulty == "easy")
-            {
-                ballXSpeed = 6;
-                ballYSpeed = 6;
-            }
-            else if (difficulty == "medium")
-            {
-                ballXSpeed = 8;
-                ballYSpeed = 8;
-            }
-            else
-            {
-                ballXSpeed = 10;
-                ballYSpeed = 10;
-            }
-
             Refresh();
         }
 
@@ -454,6 +435,7 @@ namespace GoodbyeYellowBrickRoad
             
         }
 
+        //set ball speed based on selected difficulty level, then start the game
         private void easyButton_Click(object sender, EventArgs e)
         {
             ballXSpeed = 6;
@@ -526,6 +508,7 @@ namespace GoodbyeYellowBrickRoad
 
             }
 
+            //check for ball hitting brick
             for (int i = 0; i < brownBricks.Length; i++)
             {
                 if (ball.IntersectsWith(brownBricks[i]))
@@ -583,7 +566,8 @@ namespace GoodbyeYellowBrickRoad
 
 
             }
-
+            
+            //set up lyric guess level
             if (status == "lyric guess")
             {
                 gameTimer.Enabled = false;
@@ -611,11 +595,13 @@ namespace GoodbyeYellowBrickRoad
                 
             }
 
+            //reset bricks if they've all been broken
             if (missingBricks == 30 && status == "brick-breaking")
             {
                 ResetBricks();
             }
 
+            //end game
             if (lives == 0)
             {
                 if (status != "lyric guess")
@@ -633,12 +619,14 @@ namespace GoodbyeYellowBrickRoad
                 }
             }
 
+            //display lives and scores
             livesLabel.Text = $"Lives: {lives}";
             scoreLabel.Text = $"Score: {score}"; 
 
             Refresh();
         }
 
+        //lyric guess level
         private void enterButton_Click(object sender, EventArgs e)
         {
             if (status == "lyric guess")
