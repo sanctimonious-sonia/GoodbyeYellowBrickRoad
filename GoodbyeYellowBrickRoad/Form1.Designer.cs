@@ -57,13 +57,14 @@
             // introLabel
             // 
             this.introLabel.BackColor = System.Drawing.Color.Transparent;
-            this.introLabel.Font = new System.Drawing.Font("Microsoft Uighur", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.introLabel.Font = new System.Drawing.Font("Microsoft Uighur", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.introLabel.ForeColor = System.Drawing.Color.White;
             this.introLabel.Location = new System.Drawing.Point(0, 95);
             this.introLabel.Name = "introLabel";
             this.introLabel.Size = new System.Drawing.Size(586, 467);
             this.introLabel.TabIndex = 1;
-            this.introLabel.Text = "Select a level to begin";
+            this.introLabel.Text = "Welcome to Goodbye Yellow Brick Road, an Elton John-themed Brickbreaker game! Sel" +
+    "ect a level to begin";
             this.introLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // easyButton
