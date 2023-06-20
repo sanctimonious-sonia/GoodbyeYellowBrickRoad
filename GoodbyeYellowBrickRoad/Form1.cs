@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Media;
+using System.IO;
 
 namespace GoodbyeYellowBrickRoad
 {
@@ -29,6 +31,9 @@ namespace GoodbyeYellowBrickRoad
         Stopwatch stopwatch = new Stopwatch();
 
         Random randGen = new Random();
+
+        SoundPlayer blip = new SoundPlayer(Properties.Resources.blip);
+        SoundPlayer buzz = new SoundPlayer(Properties.Resources.buzzer);
         
         //global variables
         int score = 0;
@@ -40,6 +45,7 @@ namespace GoodbyeYellowBrickRoad
         int bonusCompleted = 0;
         int bonusWon = 0;
         string difficulty;
+
         
 
         bool leftDown = false;
@@ -121,6 +127,11 @@ namespace GoodbyeYellowBrickRoad
         //change ball direction upon hitting a brick
         public void IntersectionDirectionDetection()
         {
+            if (ball.IntersectsWith(currentObject) || ball.IntersectsWith(bonusBrick))
+            {
+                blip.Play();
+            }
+
             Rectangle left = new Rectangle(ball.X, ball.Y+2, 2, ball.Height-4);
             Rectangle top = new Rectangle(ball.X+2, ball.Y, ball.Width-4, 2);
             Rectangle bottom = new Rectangle(ball.X+2, ball.Y + ball.Height-4, ball.Width-4, 2);
@@ -485,10 +496,12 @@ namespace GoodbyeYellowBrickRoad
             //reset ball position and subtract a life if ball hits bottom
             if (ball.Y > this.Height - ball.Height)
             {
+                buzz.Play();
                 lives -= 1;
                 ballYSpeed *= -1;
                 ball.X = 283;
                 ball.Y = 520;
+              
             }
 
             //move player
